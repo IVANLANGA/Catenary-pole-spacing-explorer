@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catenary pole spacing explorer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Catenary pole spacing explorer</h1>
+<p class="sub">Two 35 m poles connected by a 60 m rope. How far apart do they need to be for the rope to sag to a given height?</p>
+
+<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+  <line x1="40" y1="340" x2="640" y2="340" stroke="#999" stroke-width="1"/>
+  <text class="ts" x="46" y="356">ground</text>
+  <line id="clearLine" x1="40" y1="0" x2="640" y2="0" stroke="#999" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.6"/>
+  <text id="clearLabel" class="ts" x="560" y="0"></text>
+  <rect id="poleL" x="0" y="0" width="6" height="0" fill="#1a1a1a" opacity="0.55"/>
+  <rect id="poleR" x="0" y="0" width="6" height="0" fill="#1a1a1a" opacity="0.55"/>
+  <circle id="topL" cx="0" cy="0" r="3" fill="#1a1a1a"/>
+  <circle id="topR" cx="0" cy="0" r="3" fill="#1a1a1a"/>
+  <path id="rope" d="" fill="none" stroke="#D85A30" stroke-width="2"/>
+  <text id="dLabel" class="th" x="340" y="380" text-anchor="middle"></text>
+</svg>
+
+<div class="cards">
+  <div class="card">
+    <p class="label">Clearance</p>
+    <p class="value" id="cVal">20.0 m</p>
+  </div>
+  <div class="card">
+    <p class="label">Sag</p>
+    <p class="value" id="sagVal">15.0 m</p>
+  </div>
+  <div class="card">
+    <p class="label">Pole spacing</p>
+    <p class="value" id="dVal">49.4 m</p>
+  </div>
+</div>
+
+<div class="controls">
+  <label>Rope hangs at</label>
+  <input type="range" id="slider" min="5.05" max="20" step="0.05" value="20">
+  <span id="sliderVal">20.0 m</span>
+</div>
+
+<div class="presets">
+  <button onclick="setC(5.05)">Near 5 m</button>
+  <button onclick="setC(20)">20 m</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
